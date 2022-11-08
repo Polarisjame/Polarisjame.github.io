@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://example.com/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/GAT5.jpg">
 <meta property="og:image" content="http://example.com/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/GaAN.png">
 <meta property="article:published_time" content="2022-11-08T00:34:32.000Z">
-<meta property="article:modified_time" content="2022-11-08T05:23:38.571Z">
+<meta property="article:modified_time" content="2022-11-08T05:54:47.279Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="GNN">
 <meta property="article:tag" content="DeepLearning">
@@ -187,7 +187,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-11-08 08:34:32 / Modified: 13:23:38" itemprop="dateCreated datePublished" datetime="2022-11-08T08:34:32+08:00">2022-11-08</time>
+              <time title="Created: 2022-11-08 08:34:32 / Modified: 13:54:47" itemprop="dateCreated datePublished" datetime="2022-11-08T08:34:32+08:00">2022-11-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -210,8 +210,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>继续上文，在学习完GCN后，争对其两个问题，又分别提出了两种网络：GAT、Graph Sage，但看了许多知识图谱增强的NLP文献，里面GCN和GAT占了大多数，所以本文重点对GAT进行介绍。</p>
-<h2 id><a href="#" class="headerlink" title></a><span id="more"></span></h2><h2 id="GAT"><a href="#GAT" class="headerlink" title="GAT"></a>GAT</h2><p>GCN在融合邻居信息时边权是固定的，灵活性较差，GAT针对这个问题在图中加入了注意力机制，由模型学习更新每个边的权重</p>
+        <p>继续上文，在学习完GCN后，争对其两个问题，又分别提出了两种网络：GAT、Graph Sage，但看了许多知识图谱增强的NLP文献，里面GCN和GAT占了大多数，所以本文重点对GAT进行介绍。<br><span id="more"></span></p>
+<h2 id="GAT"><a href="#GAT" class="headerlink" title="GAT"></a>GAT</h2><p>GCN在融合邻居信息时边权是固定的，灵活性较差，GAT针对这个问题在图中加入了注意力机制，由模型学习更新每个边的权重</p>
 <center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/GAT1.jpg" width="85%" alt>
@@ -347,7 +347,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAT"><span class="nav-number">2.</span> <span class="nav-text">GAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAT%E7%9A%84%E5%8F%98%E4%BD%93%E2%80%94%E2%80%94Gated-Attention-Network-GaAN"><span class="nav-number">3.</span> <span class="nav-text">GAT的变体——Gated Attention Network(GaAN)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%AE%E5%80%BC%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="nav-number">3.1.</span> <span class="nav-text">键值注意力机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%A8%E6%8E%A7%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="nav-number">3.2.</span> <span class="nav-text">门控注意力</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GAT"><span class="nav-number">1.</span> <span class="nav-text">GAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAT%E7%9A%84%E5%8F%98%E4%BD%93%E2%80%94%E2%80%94Gated-Attention-Network-GaAN"><span class="nav-number">2.</span> <span class="nav-text">GAT的变体——Gated Attention Network(GaAN)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%AE%E5%80%BC%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="nav-number">2.1.</span> <span class="nav-text">键值注意力机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%A8%E6%8E%A7%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="nav-number">2.2.</span> <span class="nav-text">门控注意力</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
