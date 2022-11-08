@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://example.com/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/GAT5.jpg">
 <meta property="og:image" content="http://example.com/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/GaAN.png">
 <meta property="article:published_time" content="2022-11-08T00:34:32.000Z">
-<meta property="article:modified_time" content="2022-11-08T05:54:47.279Z">
+<meta property="article:modified_time" content="2022-11-08T06:34:03.777Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="GNN">
 <meta property="article:tag" content="DeepLearning">
@@ -187,7 +187,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-11-08 08:34:32 / Modified: 13:54:47" itemprop="dateCreated datePublished" datetime="2022-11-08T08:34:32+08:00">2022-11-08</time>
+              <time title="Created: 2022-11-08 08:34:32 / Modified: 14:34:03" itemprop="dateCreated datePublished" datetime="2022-11-08T08:34:32+08:00">2022-11-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -230,40 +230,35 @@
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/GAT2.jpg" width="55%" alt>
 </center>
 
-<ol>
-<li>&emsp;以目标节点$h_i \in R^{h<em>1}$以及其一个邻居节点$h_j$为例，将两节点特征利用共享参数线性层进行一次线性变换($W</em>h$)后拼接为一个向量$h’ \in R^{2h*1}$。再通过单层MLP将拼接的高维向量映射到一个实数$e_{ij}$并用LeakyReLU(或其他激活函数，e.g.，GELU、Sigmoid)激活，将$e_{ij}$称为节点$h_i、h_j$间的注意力向量。</li>
-</ol>
+<p>&emsp;以目标节点 $h_i \in R^{h\ast 1}$ 以及其一个邻居节点 $h_j$ 为例，将两节点特征利用共享参数线性层进行一次线性变换( $W*h$ )后拼接为一个向量 $h’ \in R^{2h\ast 1}$ 。再通过单层MLP将拼接的高维向量映射到一个实数 $e_{ij}$ 并用LeakyReLU(或其他激活函数，e.g.，GELU、Sigmoid)激活，将 $e_{ij}$ 称为节点 $h_i、h_j$ 间的注意力向量。</p>
 <center>
    <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/GAT3.png" width="85%" alt>
 </center>
 
-<ol>
-<li>&emsp;对每个邻居节点进行以上操作(为了加速计算，实际实现利用矩阵运算一步解决)可以得到目标节点和各邻居的注意力向量$E = [e_{i1},e_{i2},…,e_{in}]$，对E利用softmax归一化为0到1间的实数，就得到目标节点每条边的权重$a_{ij}$，最后则对各节点特征进行加权求和进行节点特征的聚合：</li>
-</ol>
+<p>&emsp;对每个邻居节点进行以上操作(为了加速计算，实际实现利用矩阵运算一步解决)可以得到目标节点和各邻居的注意力向量 $E = [e_{i1},e_{i2},…,e_{in}]$ ，对E利用softmax归一化为0到1间的实数，就得到目标节点每条边的权重 $a_{ij}$ ，最后则对各节点特征进行加权求和进行节点特征的聚合：</p>
 <center>
    <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/GAT4.jpg" width="55%" alt>
 </center>
 
-<ol>
-<li>此外，为了增强特征提取的效果，原论文中还采用多头注意力机制，即让k个头分别做注意力计算，最后将每个头的结果concate起来，在网络的最后一层输出维度一般较小，则将concate改为做平均。</li>
-</ol>
+<p>&emsp;此外，为了增强特征提取的效果，原论文中还采用多头注意力机制，即让k个头分别做注意力计算，最后将每个头的结果concate起来，在网络的最后一层输出维度一般较小，则将concate改为做平均。</p>
 <center>
    <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/GAT5.jpg" width="75%" alt>
 </center>
 
 <hr>
-<h2 id="GAT的变体——Gated-Attention-Network-GaAN"><a href="#GAT的变体——Gated-Attention-Network-GaAN" class="headerlink" title="GAT的变体——Gated Attention Network(GaAN)"></a>GAT的变体——Gated Attention Network(GaAN)</h2><h3 id="键值注意力机制"><a href="#键值注意力机制" class="headerlink" title="键值注意力机制"></a>键值注意力机制</h3><p>与GAT所使用的注意力机制，GaAN使用的是键值注意力和点积注意力机制，计算方式与Transformer中使用的多头CrossAttention相同，用公式表示为</p>
-<script type="math/tex; mode=display">a = softmax(\frac{Q*K^T}{\sqrt{d_k}})*V</script><p>其中Q为查询向量，在GCN中即为当前的目标节点特征$\in R^{1<em>h}$，K、V为键值对型向量，均为目标节点的邻居节点$\in R^{m</em>h}$，m为邻居节点个数，h为特征维度。该公式中前半部分softmax即为计算目标节点特征向量与邻居节点向量的相似度，根据相似度大小分配权重，再根据该权重对邻居节点加权求和。</p>
-<h3 id="门控注意力"><a href="#门控注意力" class="headerlink" title="门控注意力"></a>门控注意力</h3><p>在多头注意力中，为了体现不同的头捕捉的特征的区别，为每个头加入门控机制以决定该头捕获的特征的重要程度。每个头的门控值由目标节点和邻居节点通过卷积网络$\psi_g$得到。$\psi_g$有多种设计，论文中使用的是最大池化和平均池化结合的方法：</p>
+<h2 id="GAT的变体——Gated-Attention-Network-GaAN"><a href="#GAT的变体——Gated-Attention-Network-GaAN" class="headerlink" title="GAT的变体——Gated Attention Network(GaAN)"></a>GAT的变体——Gated Attention Network(GaAN)</h2><h3 id="键值注意力机制"><a href="#键值注意力机制" class="headerlink" title="键值注意力机制"></a>键值注意力机制</h3><p>&emsp;&emsp;与GAT所使用的注意力机制，GaAN使用的是键值注意力和点积注意力机制，计算方式与Transformer中使用的多头CrossAttention相同，用公式表示为 </p>
+<script type="math/tex; mode=display">
+a = softmax(\frac{Q\ast K^T}{\sqrt{d_k}})*V</script><p>其中Q为查询向量，在GCN中即为当前的目标节点特征 $\in R^{1\ast h}$ ，K、V为键值对型向量，均为目标节点的邻居节点 $\in R^{m\ast h}$，m为邻居节点个数，h为特征维度。该公式中前半部分softmax即为计算目标节点特征向量与邻居节点向量的相似度，根据相似度大小分配权重，再根据该权重对邻居节点加权求和。</p>
+<h3 id="门控注意力"><a href="#门控注意力" class="headerlink" title="门控注意力"></a>门控注意力</h3><p>&emsp;&emsp;在多头注意力中，为了体现不同的头捕捉的特征的区别，为每个头加入门控机制以决定该头捕获的特征的重要程度。每个头的门控值由目标节点和邻居节点通过卷积网络 $\psi_g$ 得到。$\psi_g$ 有多种设计，论文中使用的是最大池化和平均池化结合的方法：</p>
 <center>
    <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/GaAN.png" width="75%" alt>
 </center>
 
-<p>其中$x_i \in R^{1<em>h}$为目标节点，$FC_\theta$为一个fc层，$z_j\in R^{m</em>h}$为邻居节点特征.该卷积方法先对邻居节点做一次线性变换($FC_\theta$)，对第一个维度做最大池化，即每个维度的特征选所有邻居节点中的最大值，最大池化后的向量维度为$R^{1<em>h}$，和目标节点做逐元素乘法。再对邻居节点做平均池化(在第一个维度求平均)得到1</em>h维的向量，最后将最大池化和平均池化的结果做逐元素乘法。</p>
+<p>&emsp;&emsp;其中 $x_i \in R^{1\ast h}$为目标节点，$FC_\theta$ 为一个fc层，$z_j\in R^{m\ast h}$ 为邻居节点特征.该卷积方法先对邻居节点做一次线性变换( $FC_\theta$ )，对第一个维度做最大池化，即每个维度的特征选所有邻居节点中的最大值，最大池化后的向量维度为 $R^{1\ast h}$，和目标节点做逐元素乘法。再对邻居节点做平均池化(在第一个维度求平均)得到1*h维的向量，最后将最大池化和平均池化的结果做逐元素乘法。</p>
 <hr>
 <p>至此对于GCN和GAT以及其几个变体的介绍都结束了，总的来讲，抛开中间复杂的数学公式(e.g.，拉普拉斯矩阵、傅里叶变换，想深入的可以去学一学。)，GCN的思想还是很容易理解的，其中图Attention的机制也和CNN、RNN的机制类似，接下来就是利用pytorch+DGL搭建一个GAT网络了。</p>
 
