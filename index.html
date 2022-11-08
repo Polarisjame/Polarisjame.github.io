@@ -76,7 +76,119 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+<!-- hexo injector head_end end --><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -197,7 +309,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>继续上文，在学习完GCN后，争对其两个问题，又分别提出了两种网络：GAT、Graph Sage，但看了许多知识图谱增强的NLP文献，里面GCN和GAT占了大多数，所以本文重点对GAT进行介绍。<br></p>
+          <p>继续上文，在学习完GCN后，争对其两个问题，又分别提出了两种网络：GAT、Graph Sage，但看了许多知识图谱增强的NLP文献，里面GCN和GAT占了大多数，所以本文重点对GAT进行介绍。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/11/08/GCN%E7%AE%80%E8%BF%B0-2/#more" rel="contents">
@@ -272,7 +384,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>最近在尝试将知识图谱融入NLP任务中，于是潜学了下GCN的算法以及各种变体，在这里做个总结，并附上pytorch版GCN代码。<br></p>
+          <p>最近在尝试将知识图谱融入NLP任务中，于是潜学了下GCN的算法以及各种变体，在这里做个总结，并附上pytorch版GCN代码。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/11/08/GCN%E7%AE%80%E8%BF%B0-1/#more" rel="contents">
@@ -338,7 +450,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="my-first-Blog"><a href="#my-first-Blog" class="headerlink" title="my first Blog"></a>my first Blog</h1><h2 id="Hi-this-is-Polaris"><a href="#Hi-this-is-Polaris" class="headerlink" title="Hi, this is Polaris"></a>Hi, this is Polaris</h2>
+          <h1>my first Blog</h1>
+<h2 id="Hi-this-is-Polaris">Hi, this is Polaris</h2>
+
       
     </div>
 
